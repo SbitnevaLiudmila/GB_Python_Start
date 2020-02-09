@@ -20,3 +20,16 @@
 “количество”: [5, 2, 7],
 “ед”: [“шт.”]
 }"""
+num_items = int(input('Введите количество товаров: '))
+keys = ['название', 'цена', 'количество', 'ед']
+items = []
+
+for i in range(num_items):
+    item = input('Введите список характеристик товара через пробел (название цена количество единица): ')
+    item_list = item.split()
+    item_dict = dict(zip(keys, item_list))
+    items.append((i + 1, item_dict))
+
+print(items)
+
+

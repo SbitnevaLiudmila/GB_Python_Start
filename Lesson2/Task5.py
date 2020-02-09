@@ -7,3 +7,17 @@
 Пользователь ввел число 8. Результат: 8, 7, 5, 3, 3, 2.
 Пользователь ввел число 1. Результат: 7, 5, 3, 3, 2, 1.
 Набор натуральных чисел можно задать непосредственно в коде, например, my_list = [7, 5, 3, 3, 2]."""
+
+
+my_raiting = [7, 5, 3, 3, 2]
+
+num = int(input('введите число '))
+
+for i in range(len(my_raiting)):
+    if num >= my_raiting[i]:
+        my_raiting.insert(i, num)
+        break
+else:
+    my_raiting.append(num)
+
+print(my_raiting) #проверка
