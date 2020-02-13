@@ -5,3 +5,20 @@
 Но если вместо числа вводится специальный символ, выполнение программы завершается.
 Если специальный символ введен после нескольких чисел,
 то вначале нужно добавить сумму этих чисел к полученной ранее сумме и после этого завершить программу."""
+
+sum_total = 0
+active = True
+while active:
+    numbers = input('Введите числа через пробел, если ввод закончен, введите "q" ')
+    list_numbers = numbers.split()
+    if 'q' in list_numbers:
+        list_numbers.remove('q')
+        print('программа закончена')
+        active = False
+    list_numbers = list(map(lambda num: int(num), list_numbers))
+    sum_list = sum(list_numbers)
+    sum_total += sum_list
+    print(sum_total)
+
+
+

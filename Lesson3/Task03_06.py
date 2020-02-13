@@ -6,3 +6,17 @@
 Каждое слово состоит из латинских букв в нижнем регистре.
 Сделать вывод исходной строки, но каждое слово должно начинаться с заглавной буквы.
 Необходимо использовать написанную ранее функцию int_func()."""
+
+words = input('введите слова через пробел: ')
+list_words = words.split()
+
+# короткая запись
+
+print(' '.join(map(lambda x: x.title(), list_words)))
+
+# или через имя функции
+def int_func(word):
+    result = word.title()
+    return result
+
+print(' '.join(map(int_func, list_words)))
