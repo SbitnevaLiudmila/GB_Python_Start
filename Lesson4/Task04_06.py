@@ -20,6 +20,3 @@ for el in cycle('python'):
         c += 1
 
 
-
-
-#print('\n', el)
