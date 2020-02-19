@@ -10,3 +10,49 @@
 
 Пример словаря:
 {“Информатика”: 170, “Физика”: 40, “Физкультура”: 30}"""
+
+import re
+
+f = open('subject.txt', 'r')
+subject_list = []
+sum_hours_list = []
+for line in f:
+    my_list = re.split(':', line)         #делим строку по двоеточию, чтобы вытащить название предмета
+    subject = my_list.pop(0)
+    subject_list.append(subject)
+    hours_list = re.findall(r'\d+', line)        #выбираем цифры, еще можно use [int(num) for num in line.split() if num.isdigit()]
+    sum_hours = sum(map(int, hours_list))
+    sum_hours_list.append(sum_hours)
+
+subject_dict = dict(zip(subject_list, sum_hours_list))
+
+print(subject_dict)
+
+f.close
+
+#[int(num) for num in my_str.split() if num.isdigit()] так еще можно вытащить числа
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#f.write('Информатика: 100(л) 50(пр) 20(лаб)' + '\n')
+#f.write('Физика: 30(л) — 10(лаб)' + '\n')
+#f.write('Физкультура: — 30(пр)' + '\n')
+#f.write('Литература: 20(л) 20(пр)' + '\n')
