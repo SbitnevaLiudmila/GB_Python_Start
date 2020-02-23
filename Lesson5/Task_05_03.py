@@ -20,7 +20,7 @@ for line_no, line in enumerate(f, start=1):
     if salary < 20000:
         print(new_line[0])
 
-average_salary = sum_salary / count
+average_salary = sum_salary / count     # или складывать салари в лист и потом sum и len от салари
 
 print(f'Средняя величина дохода сотрудников: {average_salary}')
 
