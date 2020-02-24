@@ -7,3 +7,25 @@
 и дохода с учетом премии (get_total_income).
 Проверить работу примера на реальных данных (создать экземпляры класса Position,
 передать данные, проверить значения атрибутов, вызвать методы экземпляров)."""
+
+
+class Workers:
+
+    def __init__(self, name, surname, position, wage, bonus):
+        self.name = name
+        self.surname = surname
+        self.position = position
+        self._income = {'wage': int(wage), 'bonus': int(bonus)}
+
+
+class Position(Workers):
+    def get_full_name(self):
+        return self.name.title() + ' ' + self.surname.title()
+
+    def get_total_income(self):
+        return self._income['wage'] + self._income['bonus']
+
+
+worker_1 = Position('maria', 'ivanova', 'кладовщик', 15000, 5000)
+print(worker_1.get_full_name())
+print(worker_1.get_total_income())

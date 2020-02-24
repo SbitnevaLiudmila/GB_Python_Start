@@ -7,3 +7,28 @@
 Проверить работу примера, создав экземпляр и вызвав описанный метод.
 Задачу можно усложнить, реализовав проверку порядка режимов,
 и при его нарушении выводить соответствующее сообщение и завершать скрипт."""
+import time
+import itertools
+
+
+class Trafficlight:
+    def __init__(self, colors):
+        self.__colors = colors
+
+    def running(self):
+        for color in itertools.cycle(self.__colors):
+            print(color, end=' ')
+            if color == 'red':
+                time.sleep(7)
+            elif color == 'yellow':
+                time.sleep(2)
+            elif color == 'green':
+                time.sleep(6)
+
+
+a = input('Введите цвета через пробел: ').split()
+if a != ['red', 'yellow', 'green'] and a != ['yellow', 'green', 'red'] and a != ['green', 'red', 'yellow']:
+    print('Неверные цвета!')
+else:
+    my_trafficlight = Trafficlight(a)
+    my_trafficlight.running()
