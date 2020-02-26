@@ -22,3 +22,37 @@
 Или, количество ячеек клетки равняется 15, количество ячеек в ряду — 5.
 Тогда метод make_order() вернет строку: *****\n*****\n*****.
 """
+
+
+class Cell:
+    def __init__(self, param):
+        self.param = param
+
+    def __add__(self, other):
+        return self.param + other
+
+    def __sub__(self, other):
+        if self.param - other < 0:
+            return f'Разность меньше нуля!'
+        else:
+            return self.param - other
+
+    def __mul__(self, other):
+        return self.param * other
+
+    def __truediv__(self, other):
+        return self.param // other
+
+    def make_order(self, num_row):
+        result_str = ''
+        for i in range(int(self.param // num_row)):
+            result_str += '*' * num_row + '\n'
+        result_str += '*' * (self.param % num_row)
+        return result_str
+
+cell_1 = Cell(23)
+print(cell_1 + 7)
+print(cell_1 - 25)
+print(cell_1 * 2)
+print(cell_1 / 2)
+print(cell_1.make_order(5))

@@ -9,3 +9,36 @@
 Проверить на практике полученные на этом уроке знания:
 реализовать абстрактные классы для основных классов проекта, проверить на практике работу декоратора @property.
 """
+from abc import ABC, abstractmethod
+
+
+class Clothes(ABC):
+    @abstractmethod
+    def fabric_cons(self):
+        pass
+
+
+class Coat(Clothes):
+
+    def __init__(self, V):
+        self.size = V
+
+    @property
+    def fabric_cons(self):
+        return self.size / 6.5 + 0.5
+
+
+class Suit(Clothes):
+
+    def __init__(self, H):
+        self.height = H
+
+    def fabric_cons(self):
+        return self.height * 2 + 0.3
+
+
+coat_1 = Coat(46)
+print(f'{coat_1.fabric_cons:.2f}')  #здесь как атрибут с декоратором @property
+suit_1 = Suit(176)
+print(f'{suit_1.fabric_cons():.2f}') #здесь как метод
+print(f'{coat_1.fabric_cons + suit_1.fabric_cons():.2f}')

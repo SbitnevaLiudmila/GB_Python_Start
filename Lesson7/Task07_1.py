@@ -8,3 +8,28 @@
 Подсказка: сложение элементов матриц выполнять поэлементно — первый элемент первой строки первой матрицы
 складываем с первым элементом первой строки второй матрицы и т.д.
 """
+
+
+class Matrix:
+    def __init__(self, matrix_list):
+        self.matrix_list = matrix_list
+
+    def __str__(self):
+        for row in self.matrix_list:
+            print(*row, end="\n")
+        return ''
+
+    def __add__(self, other):
+        matrix_sum = []
+        for y in zip(self.matrix_list, other.matrix_list):
+            my_list = []
+            for x in zip(*y):
+                my_list.append(sum(x))
+            matrix_sum.append(my_list)
+        return Matrix(matrix_sum)
+
+
+m = Matrix([[31, 22, 11], [37, 43, 1], [51, 86, 77]])
+print(m)
+m1 = Matrix([[37, 40, 99], [100, 45, 17], [501, 6, 77]])
+print(m + m1)
