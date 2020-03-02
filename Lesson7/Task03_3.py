@@ -51,7 +51,7 @@ class Cell:
         return result_str
 
 cell_1 = Cell(23)
-print(cell_1 + 7)
+print(cell_1 + 7) #если здесь просто число как other то пишем просто other, а если как экземпляр класса, то other.param
 print(cell_1 - 25)
 print(cell_1 * 2)
 print(cell_1 / 2)
